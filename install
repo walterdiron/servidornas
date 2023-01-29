@@ -1,0 +1,5 @@
+#Copiando archivo .bashrc donde corresponde
+cp -R  .bashrc $HOME
+#Copiando archivo .bash_aliases donde corresponde.
+cp -R .bash_aliases $HOME
+source $HOME/.bash_aliases
