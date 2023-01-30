@@ -1,2 +1,2 @@
-alias aliass='nano /home/$USER/.bash_aliases'
-alias ab='source /home/$USER/.bash_aliases'
+alias aliass='nano $HOME/.bash_aliases'
+alias ab='source $HOME/.bash_aliases'

@@ -1,5 +1,58 @@
-#Copiando archivo .bashrc donde corresponde
-cp -R  .bashrc $HOME
-#Copiando archivo .bash_aliases donde corresponde.
-cp -R .bash_aliases $HOME
-source $HOME/.bash_aliases
+#!/bin/bash
+
+opcion=""
+
+while [ "$opcion" != "q" ]; do
+  echo "Menú de opciones:"
+  echo "1) Copiar .bashrc"
+  echo "2) Copiar .bash_aliases"
+  echo "3) Instalar OpenMediaVault"
+  echo "3) Actualizar Servidor"
+  echo "q) Salir"
+  read opcion
+
+  case $opcion in
+    1)
+      # Instrucciones para la opción 1
+
+      #Copiando archivo .bashrc donde corresponde
+      cp -R  .bashrc $HOME
+      source $HOME/.bashrc
+      echo -e "\033[1;32mBashrc copiado\033[0m"
+      echo
+      ;;
+    2)
+      # Instrucciones para la opción 2
+      #Copiando archivo .bash_aliases donde corresponde.
+      cp -R .bash_aliases $HOME
+      source $HOME/.bash_aliases
+      echo "Bash_aliase copiado..."
+      echo
+      ;;
+    3)
+      # Instrucciones para la opción 3
+      #Instalando OpenMediaVault
+      wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+      echo "...Open Media Vault Instalado..."
+      echo
+      ;;
+    4)
+      # Instrucciones para la opción 4
+      apt update && apt full-upgrade -y && apt autoremove -y && apt clean
+      echo "...Todo actualizado..."
+      echo
+      ;;
+    q)
+      # Instrucciones para salir
+      echo "Saliendo del menú..."
+      ;;
+    *)
+      # Instrucciones para una entrada inválida
+      echo "Opción inválida. Inténtelo de nuevo."
+      echo
+      ;;
+  esac
+done
+
+
+

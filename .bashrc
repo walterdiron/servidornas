@@ -13,7 +13,7 @@ PS1='[\[\033[1;32m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]] \[\033[1;35m\]\W\
 
 # Comandos personalizados
 function greeting {
-  echo "Bienvenido al servidor NAS."
+  echo "Bienvenido al servidor TecnoWall."
 }
 
 function update {
