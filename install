@@ -54,5 +54,31 @@ while [ "$opcion" != "q" ]; do
   esac
 done
 
+#Instalando GIT.
+sudo apt install git -y
 
+#Configurando usuario de GitHub.
 
+echo 'Email en GitHub: '
+read email
+echo 'Usuario en GitHub: '
+read usuario
+
+git config --global user.email "$email"
+git config --global user.name "$usuario"
+
+#Instalar herramientas
+apt install zsh -y
+apt install neofetch -y
+apt install wget -y
+apt install curl -y
+apt install cmatrix -y
+apt install hollywood -y
+apt install man -y
+apt install manpages-es
+dpkg-reconfigure locales
+apt install figlet -y
+apt install zip -y
+apt install exa -y
+
+figlet Herramientas Instaladas
