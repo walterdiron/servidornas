@@ -5,34 +5,32 @@ export HISTFILESIZE=2000
 export LANG=es_AR.UTF-8
 export LC_ALL=es_AR.UTF-8
 
-# Configuraciones de la terminal
-alias ll='ls -lh'
-alias la='ls -la'
-alias l='ls -CF'
+# Prompt
 PS1='[\[\033[1;32m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]] \[\033[1;35m\]\W\[\033[0m\]\$ '
 
+#Mis alias ppersonalizados
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 # Comandos personalizados
-function greeting {
-  echo "Bienvenido al servidor TecnoWall."
+function bienvenida {
+  echo "Bienvenido al servidor $HOSTNAME"
 }
 
-function update {
+function actualizar {
   sudo apt-get update
   sudo apt-get upgrade
 }
 
-function disk_space {
-  df -h
-}
-
 # Configuraciones de seguridad
-function restricted {
+function restringido {
   echo "Este comando está restringido en el servidor NAS."
   return 1
 }
-#alias rm='restricted'
-#alias mv='restricted'
-#alias cp='restricted'
+#alias rm='restringido'
+#alias mv='restringido'
+#alias cp='restringido'
 
 # Historial de comandos
 PROMPT_COMMAND='history -a'
@@ -41,6 +39,5 @@ PROMPT_COMMAND='history -a'
 shopt -s cdspell
 
 # Ejecutar comandos al iniciar sesión
-greeting
-update
-#disk_space
+bienvenida
+actualizar
