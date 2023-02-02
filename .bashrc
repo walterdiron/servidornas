@@ -1,5 +1,5 @@
 # Configuraciones de entorno
-export PATH=$PATH:/usr/local/bin:/usr/sbin
+export PATH=$PATH:/usr/local/bin:/usr/sbin: $HOME/.baulera/mis-script
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 export LANG=es_AR.UTF-8

@@ -3,30 +3,61 @@
 opcion=""
 
 while [ "$opcion" != "q" ]; do
-  echo "Menú de opciones:"
-  echo "1) Copiar .bashrc"
-  echo "2) Copiar .bash_aliases"
+  echo
+  echo "    Menú de opciones:"
+  echo
+  echo "1) Configurar mi terminal"
+  echo "2) Instalar Herramientas"
   echo "3) Instalar OpenMediaVault"
-  echo "3) Actualizar Servidor"
+  echo "4) Actualizar Servidor"
+  echo "5) Configurar git (Control de version)"
   echo "q) Salir"
-  read opcion
+  echo
+  read -p "Elije una opcion: " opcion
+  echo
 
   case $opcion in
     1)
-      # Instrucciones para la opción 1
+      # Configurando mi terminal
+      
+      #Creando carpeta .baulera
+      if [ ! -d $HOME/.baulera ]; then
+        mkdir $HOME/.baulera
+      fi
 
       #Copiando archivo .bashrc donde corresponde
       cp -R  .bashrc $HOME
       source $HOME/.bashrc
       echo -e "\033[1;32mBashrc copiado\033[0m"
       echo
-      ;;
-    2)
-      # Instrucciones para la opción 2
+
       #Copiando archivo .bash_aliases donde corresponde.
       cp -R .bash_aliases $HOME
       source $HOME/.bash_aliases
       echo "Bash_aliase copiado..."
+      echo
+
+      #Copiando carpeta mis-scripts donde corresponde
+      cp -R mis-scripts $HOME/.baulera/mis-scripts
+      echo "Carpeta de los scripts copiada"
+      echo
+      ;;
+    2)
+      #Instalar Herramientas
+
+      apt install zsh -y
+      apt install neofetch -y
+      apt install wget -y
+      apt install curl -y
+      apt install cmatrix -y
+      apt install hollywood -y
+      apt install man -y
+      apt install manpages-es
+      dpkg-reconfigure locales
+      apt install figlet -y
+      apt install zip -y
+      apt install exa -y
+      echo "Herramientas Instaladas"
       echo
       ;;
     3)
@@ -42,6 +73,23 @@ while [ "$opcion" != "q" ]; do
       echo "...Todo actualizado..."
       echo
       ;;
+    5)
+      #Instalando GIT.
+      sudo apt install git -y
+
+      #Configurando usuario de GitHub.
+
+      echo 'Email en GitHub: '
+      read email
+      echo 'Usuario en GitHub: '
+      read usuario
+
+      git config --global user.email "$email"
+      git config --global user.name "$usuario"
+
+      echo "Git configurado correctamente"
+      echo
+      ;;
     q)
       # Instrucciones para salir
       echo "Saliendo del menú..."
@@ -54,31 +102,3 @@ while [ "$opcion" != "q" ]; do
   esac
 done
 
-#Instalando GIT.
-sudo apt install git -y
-
-#Configurando usuario de GitHub.
-
-echo 'Email en GitHub: '
-read email
-echo 'Usuario en GitHub: '
-read usuario
-
-git config --global user.email "$email"
-git config --global user.name "$usuario"
-
-#Instalar herramientas
-apt install zsh -y
-apt install neofetch -y
-apt install wget -y
-apt install curl -y
-apt install cmatrix -y
-apt install hollywood -y
-apt install man -y
-apt install manpages-es
-dpkg-reconfigure locales
-apt install figlet -y
-apt install zip -y
-apt install exa -y
-
-figlet Herramientas Instaladas
