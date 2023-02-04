@@ -19,6 +19,7 @@ function greeting {
 function update {
   sudo apt-get update
   sudo apt-get upgrade
+  sudo apt dist-upgrade -y
 }
 
 function disk_space {
