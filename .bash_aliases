@@ -1,6 +1,6 @@
 alias aliass='nano $HOME/.bash_aliases'
 alias ab='source $HOME/.bash_aliases'
-alias a='apt update && apt full-upgrade -y && apt autoremove -y && apt clean && clear && echo "Todo Actualizado..."'
+alias a='apt update && apt full-upgrade -y && apt-get dist-upgrade -y && apt autoremove -y && apt clean && clear && echo "Todo Actualizado..."'
 alias ll='exa -l'
 alias la='exa -la'
 alias m='cmatrix'
