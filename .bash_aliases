@@ -7,3 +7,4 @@ alias ip="echo $(ip -o -4 addr list wlp2s0 |awk '{print $4}' |cut -d / -f1)"
 alias ll='exa -lh'
 alias la='exa -la'
 alias l='exa -CF'
+alias tecnowall='cd /srv/dev-disk-by-uuid-1df91526-fcd0-47b7-a27b-217922d3b13e/TecnoWall'
