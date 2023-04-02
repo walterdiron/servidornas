@@ -10,7 +10,7 @@ while [ "$opcion" != "q" ]; do
   echo "2) Instalar Herramientas"
   echo "3) Instalar OpenMediaVault"
   echo "4) Actualizar Servidor"
-  echo "5) Configurar git (Control de version)"
+  echo "5) Configurar git"
   echo "q) Salir"
   echo
   read -p "Elije una opcion: " opcion
@@ -21,14 +21,12 @@ while [ "$opcion" != "q" ]; do
       # Configurando mi terminal
       
       #Creando carpeta .baulera
-      if [ ! -d $HOME/.baulera ]; then
-        mkdir $HOME/.baulera
-      fi
+      mkdir -p $HOME/.baulera
 
       #Copiando archivo .bashrc donde corresponde
       cp -R  .bashrc $HOME
       source $HOME/.bashrc
-      echo -e "\033[1;32mBashrc copiado\033[0m"
+      echo -e "Bashrc copiado..."
       echo
 
       #Copiando archivo .bash_aliases donde corresponde.
@@ -45,7 +43,6 @@ while [ "$opcion" != "q" ]; do
     2)
       #Instalar Herramientas
 
-      apt install zsh -y
       apt install neofetch -y
       apt install wget -y
       apt install curl -y
@@ -54,7 +51,6 @@ while [ "$opcion" != "q" ]; do
       apt install man -y
       apt install manpages-es
       dpkg-reconfigure locales
-      apt install figlet -y
       apt install zip -y
       apt install exa -y
       echo "Herramientas Instaladas"
