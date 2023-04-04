@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Solicitar el nombre del alias
+read -p "Ingrese el nombre del alias: " alias_name
+
+# Solicitar el comando del alias
+read -p "Ingrese el comando del alias: " alias_command
+
+# Agregar el alias al archivo .bash_aliases
+echo "alias $alias_name='$alias_command'" >> $HOME/.bash_aliases
+
+# Cargar el archivo .bash_aliases para que el alias esté disponible en la sesión actual
+source ~/.bash_aliases
+
+# Mostrar un mensaje de confirmación
+echo "El alias '$alias_name' fue agregado correctamente."
