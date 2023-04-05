@@ -22,6 +22,7 @@ while [ "$opcion" != "q" ]; do
       
       #Creando carpeta .baulera
       mkdir -p $HOME/.baulera
+      
 
       #Copiando archivo .bashrc donde corresponde
       cp -R  .bashrc $HOME
@@ -65,7 +66,7 @@ while [ "$opcion" != "q" ]; do
       ;;
     4)
       # Instrucciones para la opción 4
-      apt update && apt full-upgrade -y && apt autoremove -y && apt clean
+      alias a='sudo apt update && sudo apt full-upgrade -y && sudo apt-get dist-upgrade && sudo apt autoremove -y && sudo apt clean && clear && echo "Todo Actualizado..."'
       echo "...Todo actualizado..."
       echo
       ;;
