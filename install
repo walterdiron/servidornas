@@ -32,7 +32,9 @@ while [ "$opcion" != "q" ]; do
       source $HOME/.bashrc
 
       #Copiando carpeta mis-scripts donde corresponde
+
       cp -R mis-scripts $HOME/.baulera/mis-scripts
+      chmod -R +x $HOME/.baulera/mis-scripts
       source $HOME/.bashrc
 
       ;;
