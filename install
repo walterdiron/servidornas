@@ -22,24 +22,19 @@ while [ "$opcion" != "q" ]; do
       
       #Creando carpeta .baulera
       mkdir -p $HOME/.baulera
-      
-
-      #Copiando archivo .bashrc donde corresponde
-      cp -R  .bashrc $HOME
-      source $HOME/.bashrc
-      echo -e "Bashrc copiado..."
-      echo
 
       #Copiando archivo .bash_aliases donde corresponde.
       cp -R .bash_aliases $HOME
       source $HOME/.bash_aliases
-      echo "Bash_aliase copiado..."
-      echo
+
+      #Copiando archivo .bashrc donde corresponde
+      cp -R  .bashrc $HOME
+      source $HOME/.bashrc
 
       #Copiando carpeta mis-scripts donde corresponde
       cp -R mis-scripts $HOME/.baulera/mis-scripts
-      echo "Carpeta de los scripts copiada"
-      echo
+      source $HOME/.bashrc
+
       ;;
     2)
       #Instalar Herramientas

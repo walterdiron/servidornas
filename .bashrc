@@ -1,5 +1,5 @@
 # Configuraciones de entorno
-export PATH=$PATH:/usr/local/bin:/usr/sbin: $HOME/.baulera/mis-script
+export PATH="$HOME/.baulera/mis-scripts:$PATH"
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 export LANG=es_AR.UTF-8
@@ -8,8 +8,9 @@ export LC_ALL=es_AR.UTF-8
 #Actualizacion
 function actualizar {
   sudo apt-get update
-  sudo apt-get upgrade
+  sudo apt-get upgrade -y
   sudo apt dist-upgrade -y
+  sudo apt autoremove -y
   sudo clear
 }
 
@@ -20,7 +21,7 @@ function bienvenida {
 
 # Configuraciones de seguridad
 function restringido {
-  echo "Este comando está restringido en el servidor NAS."
+  echo "Este comando está restringido en el servidor."
   return 1
 }
 #alias rm='restringido'
@@ -42,5 +43,5 @@ PROMPT_COMMAND='history -a'
 shopt -s cdspell
 
 # Ejecutar funciones al iniciar sesión
-actualizar
+#actualizar
 bienvenida
