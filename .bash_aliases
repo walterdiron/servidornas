@@ -4,11 +4,11 @@ alias a='sudo apt update && sudo apt full-upgrade -y && sudo apt-get dist-upgrad
 alias m='cmatrix'
 alias h='hollywood'
 alias baulera='cd /home/$USER/.baulera'
-alias ip="echo $(ip -o -4 addr list wlp2s0 |awk '{print $4}' |cut -d / -f1)"
 alias ll='exa -lh'
 alias la='exa -la'
 alias l='exa -CF'
 alias temp='vcgencmd measure_temp | cut -d= -f2'
 alias volts='vcgencmd measure_volts | cut -d= -f2'
-alias disco='cd /srv/dev-disk-by-uuid-593DB16D5E17C4FA/TecnoWall'
 alias man='man -L es'
+alias rc='nano $HOME/.bashrc'
+alias ls='exa'

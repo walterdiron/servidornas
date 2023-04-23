@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Nombre de usuario de GitHub
+USERNAME="tu_usuario"
+
+# Nombre del repositorio
+REPO="tu_repositorio"
+
+# Mensaje de commit
+MESSAGE="Mensaje de commit"
+
+# Cambiar directorio al repositorio
+cd /ruta/al/repositorio
+
+# Añadir todos los cambios al área de staging
+git add .
+
+# Hacer un commit con el mensaje especificado
+git commit -m "$MESSAGE"
+
+# Subir los cambios al repositorio remoto
+git push https://$USERNAME@github.com/$USERNAME/$REPO.git master
+
+# Confirmar si el push fue exitoso
+if [ $? -eq 0 ]; then
+    echo "¡Cambios subidos con éxito!"
+else
+    echo "Error al subir los cambios"
+fi

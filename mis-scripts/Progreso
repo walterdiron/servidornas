@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define la tarea que realizará el script
-total=100
+total=10
 echo "Realizando tarea:"
 
 # Inicia el ciclo para actualizar la barra de progreso
@@ -21,7 +21,7 @@ for ((i=0; i<=${total}; i++)); do
     echo -ne "${bar}] ${percent}%" "\r")
 
     # Simula una tarea que tarda un poco
-    sleep 10
+    sleep 1
 done
 
 # Imprime el mensaje de tarea completada
