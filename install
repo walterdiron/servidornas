@@ -41,16 +41,16 @@ while [ "$opcion" != "q" ]; do
     2)
       #Instalar Herramientas
 
-      apt install neofetch -y
-      apt install wget -y
-      apt install curl -y
-      apt install cmatrix -y
-      apt install hollywood -y
-      apt install man -y
-      apt install manpages-es
+      sudo apt install neofetch -y
+      sudo apt install wget -y
+      sudo apt install curl -y
+      sudo apt install cmatrix -y
+      sudo apt install hollywood -y
+      sudo apt install man -y
+      sudo apt install manpages-es
       dpkg-reconfigure locales
-      apt install zip -y
-      apt install exa -y
+      sudo apt install zip -y
+      sudo apt install exa -y
       echo "Herramientas Instaladas"
       echo
       ;;
