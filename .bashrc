@@ -29,7 +29,7 @@ function restringido {
 #alias cp='restringido'
 
 # Prompt
-PS1='[\[\033[1;32m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\]] \[\033[1;35m\]\W\[\033[0m\]\$ '
+PS1='\[\e[0;32m\]\w\[\e[0m\] \[\e[0;97m\]\$\[\e[0m\] '
 
 #Mis alias personalizados
 if [ -f ~/.bash_aliases ]; then
@@ -45,3 +45,4 @@ shopt -s cdspell
 # Ejecutar funciones al iniciar sesión
 #actualizar
 bienvenida
+cmatrix
