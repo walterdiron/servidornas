@@ -1,0 +1,43 @@
+import paramiko
+
+def descargar_archivo_ssh():
+    # Preguntar al usuario por la información de conexión SSH
+    host = input("Ingresa la dirección IP del servidor SSH: ")
+    usuario = input("Ingresa el nombre de usuario SSH: ")
+    contraseña = input("Ingresa la contraseña SSH: ")
+
+    # Crear una instancia de la conexión SSH
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    try:
+        # Conectar al servidor SSH
+        ssh.connect(host, username=usuario, password=contraseña)
+
+        # Preguntar al usuario por la ubicación y nombre del archivo en el servidor SSH
+        ruta_remota = input("Ingresa la ruta del archivo en el servidor SSH: ")
+        nombre_archivo = input("Ingresa el nombre del archivo en el servidor SSH: ")
+
+        # Preguntar al usuario por la ubicación y nombre del archivo local
+        ruta_local = input("Ingresa la ubicación local donde guardar el archivo: ")
+        nombre_local = input("Ingresa el nombre del archivo local: ")
+
+        # Construir la ruta completa del archivo tanto en el servidor como local
+        ruta_completa_remota = f"{ruta_remota}/{nombre_archivo}"
+        ruta_completa_local = f"{ruta_local}/{nombre_local}"
+
+        # Descargar el archivo desde el servidor SSH
+        with ssh.open_sftp() as sftp:
+            sftp.get(ruta_completa_remota, ruta_completa_local)
+
+        print(f"El archivo {nombre_archivo} se ha descargado exitosamente a {ruta_local}")
+
+    except Exception as e:
+        print(f"Error al descargar el archivo: {e}")
+
+    finally:
+        # Cerrar la conexión SSH
+        ssh.close()
+
+# Llamar a la función para descargar el archivo
+descargar_archivo_ssh()

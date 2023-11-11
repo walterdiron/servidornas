@@ -45,4 +45,3 @@ shopt -s cdspell
 # Ejecutar funciones al iniciar sesión
 #actualizar
 bienvenida
-cmatrix

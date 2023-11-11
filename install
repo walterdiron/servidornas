@@ -29,12 +29,13 @@ while [ "$opcion" != "q" ]; do
 
       #Copiando archivo .bashrc donde corresponde
       cp -R  .bashrc $HOME
-      source $HOME/.bashrc
 
       #Copiando carpeta mis-scripts donde corresponde
 
       cp -R mis-scripts $HOME/.baulera/mis-scripts
       chmod -R +x $HOME/.baulera/mis-scripts
+      
+      #Actualizar .bashrc
       source $HOME/.bashrc
 
       ;;
@@ -51,7 +52,9 @@ while [ "$opcion" != "q" ]; do
       dpkg-reconfigure locales
       sudo apt install zip -y
       sudo apt install exa -y
+      sudo apt install python3 -y
       echo "Herramientas Instaladas"
+
       echo
       ;;
     3)
