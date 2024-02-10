@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Limpiar la pantalla
+clear
+
+# Mensaje de bienvenida
+echo "Configuración de IP estática en Raspberry Pi"
+
+# Obtener la interfaz de red (generalmente eth0 para conexión Ethernet)
+read -p "Introduce la interfaz de red (por lo general, eth0): " interfaz
+
+# Obtener la dirección IP estática
+read -p "Introduce la dirección IP estática que deseas asignar: " ip
+
+# Obtener la máscara de red
+read -p "Introduce la máscara de red (ej. 255.255.255.0): " mascara
+
+# Obtener la puerta de enlace (gateway)
+read -p "Introduce la puerta de enlace (gateway): " gateway
+
+# Crear el archivo de configuración para la interfaz de red
+cat <<EOF | sudo tee /etc/network/interfaces.d/$interfaz
+auto $interfaz
+iface $interfaz inet static
+    address $ip
+    netmask $mascara
+    gateway $gateway
+EOF
+
+# Reiniciar la interfaz de red para aplicar los cambios
+sudo ifdown $interfaz && sudo ifup $interfaz
+
+echo "Configuración completada. La Raspberry Pi ahora tiene la IP estática: $ip"
