@@ -16,6 +16,7 @@ function actualizar {
 
 # Comandos personalizados
 function bienvenida {
+  clear
   echo "Bienvenido al servidor $HOSTNAME"
 }
 
@@ -43,5 +44,4 @@ PROMPT_COMMAND='history -a'
 shopt -s cdspell
 
 # Ejecutar funciones al iniciar sesión
-#actualizar
 bienvenida
