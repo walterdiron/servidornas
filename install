@@ -1,5 +1,28 @@
 #!/bin/bash
 
+#Funciones:
+# Función para montar el disco externo USB
+mountar_disco_externo() {
+    # Crear carpeta de montaje
+    mkdir -p /home/$USER/2GB
+
+    # Obtener el nombre del disco
+    local disk=$(lsblk -o NAME | grep -E '^sd[a-z]+$' | head -n 1)
+    if [ -z "$disk" ]; then
+        echo "No se encontró ningún disco USB."
+        return 1
+    fi
+
+    # Crear una entrada en /etc/fstab
+    echo "/dev/$disk /home/$USER/2GB auto defaults,user,umask=000 0 0" | sudo tee -a /etc/fstab > /dev/null
+
+    # Montar el disco
+    sudo mount -a
+
+    echo "El disco externo USB se ha montado automáticamente en /home/$USER/2GB."
+}
+
+
 opcion=""
 
 while [ "$opcion" != "q" ]; do
@@ -23,6 +46,9 @@ while [ "$opcion" != "q" ]; do
       
       #Creando carpeta .baulera
       mkdir -p $HOME/.baulera
+
+      #Montar Disco Externo
+      mountar_disco_externo
 
       #Copiando archivo .bash_aliases donde corresponde.
       cp -R .bash_aliases $HOME
