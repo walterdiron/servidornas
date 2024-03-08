@@ -77,7 +77,7 @@ while [ "$opcion" != "q" ]; do
       mkdir -p $HOME/.baulera
 
       #Montar Disco Externo
-      mountar_disco_externo
+      #mountar_disco_externo
 
       #Copiando archivo .bash_aliases donde corresponde.
       cp -R .bash_aliases $HOME
@@ -143,7 +143,7 @@ while [ "$opcion" != "q" ]; do
       echo "Git configurado correctamente"
       echo
       ;;
-    )
+    6)
       # Instrucciones para la opción 6
       #!/bin/bash
 
@@ -166,13 +166,13 @@ while [ "$opcion" != "q" ]; do
       read -p "Introduce la puerta de enlace (gateway): " gateway
       
       # Crear el archivo de configuración para la interfaz de red
-      cat <<EOF | sudo tee /etc/network/interfaces.d/$interfaz
-      auto $interfaz
-      iface $interfaz inet static
-          address $ip
-          netmask $mascara
-          gateway $gateway
-      EOF
+      #cat <<EOF | sudo tee /etc/network/interfaces.d/$interfaz
+      #auto $interfaz
+      #iface $interfaz inet static
+      #    address $ip
+      #    netmask $mascara
+      #    gateway $gateway
+      #EOF
       
       # Reiniciar la interfaz de red para aplicar los cambios
       sudo ifdown $interfaz && sudo ifup $interfaz
@@ -189,4 +189,4 @@ while [ "$opcion" != "q" ]; do
       echo
       ;;
   esac
-done
+#done
