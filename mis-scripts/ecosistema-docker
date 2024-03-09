@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Verificar si el script se está ejecutando como root
+if [ "$EUID" -ne 0 ]; then
+  echo "Por favor, ejecuta este script como root o con privilegios de sudo."
+  exit 1
+fi
+
+# Instalar Docker
+echo "Instalando Docker..."
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker $USER
+
+# Instalar Docker Compose
+echo "Instalando Docker Compose..."
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Dar permisos totales del grupo de Docker al usuario actual
+echo "Dando permisos totales del grupo de Docker al usuario actual..."
+sudo usermod -aG docker $USER
+
+# Mostrar un mensaje indicando que la instalación y configuración se han completado
+echo "Docker y Docker Compose se han instalado correctamente."
+
+# Limpiar archivos temporales
+rm get-docker.sh
+
+# Reiniciar el sistema
+read -p "¿Quieres reiniciar el sistema ahora? (y/n): " choice
+if [ "$choice" == "y" ] || [ "$choice" == "Y" ]; then
+  sudo reboot
+else
+  echo "No se reiniciará el sistema. Asegúrate de cerrar sesión o reiniciar manualmente más tarde para aplicar los cambios de grupo."
+fi
+
+# Fin del script
+exit 0

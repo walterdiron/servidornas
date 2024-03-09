@@ -2,56 +2,7 @@
 
 #Funciones:
 # Función para montar el disco externo USB
-mountar_disco_externo() {
-    # Crear carpeta de montaje
-    mkdir -p /home/$USER/2GB
-
-    # Obtener el nombre del disco
-    local disk=$(lsblk -o NAME | grep -E '^sd[a-z]+$' | head -n 1)
-    if [ -z "$disk" ]; then
-        echo "No se encontró ningún disco USB."
-        return 1
-    fi
-
-    # Crear una entrada en /etc/fstab
-    echo "/dev/$disk /home/$USER/2GB auto defaults,user,umask=000 0 0" | sudo tee -a /etc/fstab > /dev/null
-
-    # Montar el disco
-    sudo mount -a
-
-    echo "El disco externo USB se ha montado automáticamente en /home/$USER/2GB."
-}
-
-# Función para instalar Docker y Docker Compose y otorgar permisos totales del grupo de Docker al usuario actual
-instalar_docker() {
-    # Verificar si el script se está ejecutando como root
-    if [ "$EUID" -ne 0 ]; then
-        echo "Por favor, ejecuta este script como root o con privilegios de sudo."
-        exit 1
-    fi
-
-    # Instalar Docker
-    echo "Instalando Docker..."
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
-    sudo usermod -aG docker $USER
-
-    # Instalar Docker Compose
-    echo "Instalando Docker Compose..."
-    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-
-    # Dar permisos totales del grupo de Docker al usuario actual
-    echo "Dando permisos totales del grupo de Docker al usuario actual..."
-    sudo usermod -aG docker $USER
-
-    # Mostrar un mensaje indicando que la instalación y configuración se han completado
-    echo "Docker y Docker Compose se han instalado correctamente. Es posible que necesites cerrar sesión o reiniciar el sistema para aplicar los cambios de grupo."
-
-    # Limpiar archivos temporales
-    rm get-docker.sh
-}
-
+mountar_disco_externo() {}
 opcion=""
 
 while [ "$opcion" != "q" ]; do
@@ -61,9 +12,6 @@ while [ "$opcion" != "q" ]; do
   echo "1) Configurar mi terminal"
   echo "2) Instalar Herramientas"
   echo "3) Instalar OpenMediaVault"
-  echo "4) Actualizar Servidor"
-  echo "5) Configurar git"
-  echo "6) Establecer IP fija"
   echo "q) Salir"
   echo
   read -p "Elije una opcion: " opcion
@@ -76,22 +24,23 @@ while [ "$opcion" != "q" ]; do
       #Creando carpeta .baulera
       mkdir -p $HOME/.baulera
 
-      #Montar Disco Externo
-      #mountar_disco_externo
-
       #Copiando archivo .bash_aliases donde corresponde.
       cp -R .bash_aliases $HOME
       source $HOME/.bash_aliases
 
       #Copiando archivo .bashrc donde corresponde
-      cp -R  .bashrc $HOME
+      cp -R .bashrc $HOME
+      source $HOME/.bashrc
 
       #Copiando carpeta mis-scripts donde corresponde
       cp -R mis-scripts $HOME/.baulera/mis-scripts
       chmod -R +x $HOME/.baulera/mis-scripts
       
       #Actualizar .bashrc
-      source $HOME/.bashrc $HOME/.bash_aliases
+      source $HOME/.bashrc 
+      source $HOME/.bash_aliases
+
+      echo "Terminal Configurada"
 
       ;;
     2)
@@ -108,7 +57,6 @@ while [ "$opcion" != "q" ]; do
       sudo apt install zip -y
       sudo apt install exa -y
       sudo apt install python3 -y
-      sudo instalar_docker
       echo "Herramientas Instaladas"
 
       echo
@@ -117,75 +65,8 @@ while [ "$opcion" != "q" ]; do
       # Instrucciones para la opción 3
       #Instalando OpenMediaVault
       wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
-      echo "...Open Media Vault Instalado..."
-      echo
-      ;;
-    4)
-      # Instrucciones para la opción 4
-      alias a='sudo apt update && sudo apt full-upgrade -y && sudo apt-get dist-upgrade && sudo apt autoremove -y && sudo apt clean && clear && echo "Todo Actualizado..."'
-      echo "...Todo actualizado..."
-      echo
-      ;;
-    5)
-      #Instalando GIT.
-      sudo apt install git -y
-
-      #Configurando usuario de GitHub.
-
-      echo 'Email en GitHub: '
-      read email
-      echo 'Usuario en GitHub: '
-      read usuario
-
-      git config --global user.email "$email"
-      git config --global user.name "$usuario"
-
-      echo "Git configurado correctamente"
-      echo
-      ;;
-    6)
-      # Instrucciones para la opción 6
-      #!/bin/bash
-
-      # Limpiar la pantalla
       clear
-      
-      # Mensaje de bienvenida
-      echo "Configuración de IP estática en Raspberry Pi"
-      
-      # Obtener la interfaz de red (generalmente eth0 para conexión Ethernet)
-      read -p "Introduce la interfaz de red (por lo general, eth0): " interfaz
-      
-      # Obtener la dirección IP estática
-      read -p "Introduce la dirección IP estática que deseas asignar: " ip
-      
-      # Obtener la máscara de red
-      read -p "Introduce la máscara de red (ej. 255.255.255.0): " mascara
-      
-      # Obtener la puerta de enlace (gateway)
-      read -p "Introduce la puerta de enlace (gateway): " gateway
-      
-      # Crear el archivo de configuración para la interfaz de red
-      #cat <<EOF | sudo tee /etc/network/interfaces.d/$interfaz
-      #auto $interfaz
-      #iface $interfaz inet static
-      #    address $ip
-      #    netmask $mascara
-      #    gateway $gateway
-      #EOF
-      
-      # Reiniciar la interfaz de red para aplicar los cambios
-      sudo ifdown $interfaz && sudo ifup $interfaz
-      
-      echo "Configuración completada. La Raspberry Pi ahora tiene la IP estática: $ip"
-      ;;
-    q)
-      # Instrucciones para salir
-      echo "Saliendo del menú..."
-      ;;
-    *)
-      # Instrucciones para una entrada inválida
-      echo "Opción inválida. Inténtelo de nuevo."
+      echo "...Open Media Vault Instalado..."
       echo
       ;;
   esac

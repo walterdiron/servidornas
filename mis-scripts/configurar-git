@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+
+#Configurando usuario de GitHub.
+
+#Pidiendo datos:
+echo 'Email en GitHub: '
+read email
+echo 'Usuario en GitHub: '
+read usuario
+
+#Aplicando la configuracion
+git config --global user.email "$email"
+git config --global user.name "$usuario"
+
+echo "Git configurado correctamente"
+echo
