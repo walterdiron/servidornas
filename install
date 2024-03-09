@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Funciones:
-# Función para montar el disco externo USB
-mountar_disco_externo() {}
 opcion=""
 
 while [ "$opcion" != "q" ]; do
@@ -39,8 +36,8 @@ while [ "$opcion" != "q" ]; do
       #Actualizar .bashrc
       source $HOME/.bashrc 
       source $HOME/.bash_aliases
-
-      echo "Terminal Configurada"
+      clear
+      echo "  Terminal Configurada"
 
       ;;
     2)
@@ -57,7 +54,7 @@ while [ "$opcion" != "q" ]; do
       sudo apt install zip -y
       sudo apt install exa -y
       sudo apt install python3 -y
-      echo "Herramientas Instaladas"
+      echo "  Herramientas Instaladas"
 
       echo
       ;;
@@ -66,7 +63,7 @@ while [ "$opcion" != "q" ]; do
       #Instalando OpenMediaVault
       wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
       clear
-      echo "...Open Media Vault Instalado..."
+      echo "  ...Open Media Vault Instalado..."
       echo
       ;;
   esac
