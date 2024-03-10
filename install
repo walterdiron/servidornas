@@ -8,7 +8,7 @@ while [ "$opcion" != "q" ]; do
   echo
   echo "1) Configurar mi terminal"
   echo "2) Instalar Herramientas"
-  echo "3) Instalar OpenMediaVault"
+  echo "3) Instalar CasaOS"
   echo "q) Salir"
   echo
   read -p "Elije una opcion: " opcion
@@ -61,7 +61,8 @@ while [ "$opcion" != "q" ]; do
     3)
       # Instrucciones para la opción 3
       #Instalando OpenMediaVault
-      wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+      #wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+      curl -fsSL https://get.casaos.io | sudo bash
       clear
       echo "  ...Open Media Vault Instalado..."
       echo
