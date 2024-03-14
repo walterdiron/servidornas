@@ -61,6 +61,10 @@ while [ "$opcion" != "q" ]; do
                 "manpages-es"
                 "zip"
                 "exa"
+                "python3" 
+                "python3-pip" 
+                "python3-venv" 
+                "python3-dev"
             )
 
             # Función para mostrar barra de progreso
@@ -101,30 +105,16 @@ while [ "$opcion" != "q" ]; do
             # Instalar Ecosistema Docker
             echo "Instalando Docker..."
             sudo apt-get update
-            sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-            sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-            sudo apt-get update
-            sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-            if ! command -v docker &> /dev/null; then
-                echo "Error: Docker no se instaló correctamente. Salida del script."
-                exit 1
-            fi
-            echo "Instalando Docker Compose..."
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
-            if ! command -v docker-compose &> /dev/null; then
-                echo "Error: Docker Compose no se instaló correctamente. Salida del script."
-                exit 1
-            fi
-            echo "Agregando el usuario al grupo de Docker..."
-            sudo usermod -aG docker "$USER"
-            if [ $? -eq 0 ]; then
-                echo "Usuario agregado correctamente al grupo de Docker."
-            else
-                echo "Error al agregar usuario al grupo de Docker."
-                exit 1
-            fi
+            curl -sSl https://get.docker.com |sh
+            sudo groupadd docker
+            sudo usermod -aG docker $USER
+            newgrp docker
+
+            #docker compose
+            sudo apt install -y libffi-dev libssl-dev python-pip
+            sudo pip3 install docker-compose            
+            
+            #Instalando Portainer
             echo "Creando el archivo docker-compose.yml para Portainer..."
             cat <<EOF > "$HOME/docker-compose.yml"
             version: '3'
