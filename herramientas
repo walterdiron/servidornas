@@ -31,14 +31,14 @@ show_progress() {
 # Instalar herramientas
 for tool in "${tools[@]}"; do
     echo "Instalando $tool..."
-    bar="...................................................................................................."
+    bar="PROGRESO AL: "
     length=${#bar}
     count=0
     sudo apt install "$tool" -y > /dev/null 2>&1 &
     pid=$!
     while kill -0 $pid 2>/dev/null; do
         show_progress $count $length
-        sleep 0.5
+        sleep 0.2
         count=$((count+1))
     done
     wait $pid
