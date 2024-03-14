@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Pedir al usuario el nombre de la carpeta de montaje
+read -p "Ingrese el nombre de la carpeta de montaje: " folder_name
+
 # Crear carpeta de montaje
-mkdir -p /home/$USER/2GB
+mkdir -p "/home/$USER/$folder_name"
 
 # Obtener el nombre del disco
 local disk=$(lsblk -o NAME | grep -E '^sd[a-z]+$' | head -n 1)
@@ -11,9 +14,10 @@ if [ -z "$disk" ]; then
 fi
 
 # Crear una entrada en /etc/fstab
-echo "/dev/$disk /home/$USER/2GB auto defaults,user,umask=000 0 0" | sudo tee -a /etc/fstab > /dev/null
+echo "/dev/$disk /home/$USER/$folder_name auto defaults,user,umask=000 0 0" | sudo tee -a /etc/fstab > /dev/null
 
 # Montar el disco
 sudo mount -a
 
-echo "El disco externo USB se ha montado automáticamente en /home/$USER/2GB."
+echo "El disco externo USB se ha montado automáticamente en /home/$USER/$folder_name."
+
