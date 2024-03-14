@@ -29,8 +29,8 @@ while [ "$opcion" != "q" ]; do
     echo "1) Configurar mi terminal"
     echo "2) Instalar Herramientas"
     echo "3) Instalar Docker"
-    echo "4) Instalar Docker"
-    echo "5) Instalar Docker"
+    echo "4) Instalar Docker-compose"
+    echo "5) Instalar Portainer"
     echo "q) Salir"
     echo
     read -p "Elige una opción: " opcion
