@@ -160,11 +160,6 @@ EOF
             echo "Opción inválida."
             ;;
     esac
-done
-
-
-            #docker compose
-            sudo apt install -y libffi-dev libssl-dev python-pip
-            sudo pip3 install docker-compose            
+done          
             
             
