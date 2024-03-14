@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Verificar privilegios de superusuario
-if [ "$(id -u)" -ne 0 ]; then
-    echo "Este script necesita ser ejecutado con privilegios de superusuario."
-    exit 1
-fi
+#if [ "$(id -u)" -ne 0 ]; then
+#    echo "Este script necesita ser ejecutado con privilegios de superusuario."
+#    exit 1
+#fi
 
 # Lista de herramientas a instalar
 tools=(
@@ -34,11 +34,11 @@ for tool in "${tools[@]}"; do
     bar="...................................................................................................."
     length=${#bar}
     count=0
-    apt install "$tool" -y > /dev/null 2>&1 &
+    sudo apt install "$tool" -y > /dev/null 2>&1 &
     pid=$!
     while kill -0 $pid 2>/dev/null; do
         show_progress $count $length
-        sleep 0.1
+        sleep 0.5
         count=$((count+1))
     done
     wait $pid
@@ -52,4 +52,4 @@ for tool in "${tools[@]}"; do
     fi
 done
 
-echo "Instalación completa."
+echo "Herramientas instaladas"
