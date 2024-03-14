@@ -50,21 +50,52 @@ while [ "$opcion" != "q" ]; do
             echo "  Terminal Configurada"
             ;;
         2)
-            # Instalar Herramientas
-            echo "Instalando Neofetch..."
-            sudo apt install neofetch -y
-            if [ $? -eq 0 ]; then
-                echo "Neofetch instalado correctamente."
-            else
-                echo "Error al instalar Neofetch."
-            fi
-            echo "Configurando locales..."
-            sudo dpkg-reconfigure locales
-            if [ $? -eq 0 ]; then
-                echo "Locales configurados correctamente."
-            else
-                echo "Error al configurar locales."
-            fi
+            tools=(
+                "neofetch"
+                "btop"
+                "wget"
+                "curl"
+                "cmatrix"
+                "hollywood"
+                "man"
+                "manpages-es"
+                "zip"
+                "exa"
+            )
+
+            # Función para mostrar barra de progreso
+            show_progress() {
+                local elapsed=$1
+                local total=$2
+                local progress=$((elapsed * 100 / total))
+                printf "[%-100s] %d%%\r" "$bar" "$progress"
+            }
+
+            # Instalar herramientas
+            for tool in "${tools[@]}"; do
+                echo "Instalando $tool..."
+                bar="PROGRESO AL: "
+                length=${#bar}
+                count=0
+                sudo apt install "$tool" -y > /dev/null 2>&1 &
+                pid=$!
+                while kill -0 $pid 2>/dev/null; do
+                    show_progress $count $length
+                    sleep 0.2
+                    count=$((count+1))
+                done
+                wait $pid
+                show_progress $length $length
+                echo ""
+                if [ $? -eq 0 ]; then
+                    echo "$tool se ha instalado correctamente."
+                else
+                    echo "Error al instalar $tool. ¡Abortando!"
+                    exit 1
+                fi
+            done
+
+            echo "Herramientas instaladas"
             ;;
         3)
             # Instalar Ecosistema Docker
