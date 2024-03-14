@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# Actualizar lista de paquetes
+sudo apt update
+
+# Instalar paquete de idioma español
+sudo apt install -y language-pack-es
+
+# Configurar idioma del sistema
+sudo update-locale LANG=es_AR.UTF-8
+
+# Actualizar sistema
+sudo apt full-upgrade -y
+
+# Eliminar paquetes no necesarios
+sudo apt autoremove -y
+
+# Limpiar caché
+sudo apt clean
+
+echo "El sistema ha sido actualizado y configurado en español latinoamericano de Argentina."
+
+opcion=""
+
+while [ "$opcion" != "q" ]; do
+    echo
+    echo "    Menú de opciones:"
+    echo
+    echo "1) Configurar mi terminal"
+    echo "2) Instalar Herramientas"
+    echo "3) Instalar Ecosistema Docker"
+    echo "q) Salir"
+    echo
+    read -p "Elige una opción: " opcion
+    echo
+
+    case "$opcion" in
+        1)
+            # Configurando mi terminal
+            mkdir -p "$HOME/.baulera"
+            cp -R .bash_aliases "$HOME"
+            source "$HOME/.bash_aliases"
+            cp -R .bashrc "$HOME"
+            source "$HOME/.bashrc"
+            cp -R mis-scripts "$HOME/.baulera/mis-scripts"
+            chmod -R +x "$HOME/.baulera/mis-scripts"
+            source "$HOME/.bashrc"
+            source "$HOME/.bash_aliases"
+            clear
+            echo "  Terminal Configurada"
+            ;;
+        2)
+            # Instalar Herramientas
+            echo "Instalando Neofetch..."
+            sudo apt install neofetch -y
+            if [ $? -eq 0 ]; then
+                echo "Neofetch instalado correctamente."
+            else
+                echo "Error al instalar Neofetch."
+            fi
+            echo "Configurando locales..."
+            sudo dpkg-reconfigure locales
+            if [ $? -eq 0 ]; then
+                echo "Locales configurados correctamente."
+            else
+                echo "Error al configurar locales."
+            fi
+            ;;
+        3)
+            # Instalar Ecosistema Docker
+            echo "Instalando Docker..."
+            sudo apt-get update
+            sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+            sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+            sudo apt-get update
+            sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+            if ! command -v docker &> /dev/null; then
+                echo "Error: Docker no se instaló correctamente. Salida del script."
+                exit 1
+            fi
+            echo "Instalando Docker Compose..."
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+            if ! command -v docker-compose &> /dev/null; then
+                echo "Error: Docker Compose no se instaló correctamente. Salida del script."
+                exit 1
+            fi
+            echo "Agregando el usuario al grupo de Docker..."
+            sudo usermod -aG docker "$USER"
+            if [ $? -eq 0 ]; then
+                echo "Usuario agregado correctamente al grupo de Docker."
+            else
+                echo "Error al agregar usuario al grupo de Docker."
+                exit 1
+            fi
+            echo "Creando el archivo docker-compose.yml para Portainer..."
+            cat <<EOF > "$HOME/docker-compose.yml"
+            version: '3'
+            services:
+                portainer:
+                    container_name: portainer
+                    image: portainer/portainer-ce:linux-arm64-2.19.4
+                    ports:
+                        - "9000:9000"
+                    volumes:
+                        - "$HOME/.docker_config/portainer/docker.sock:/var/run/docker.sock"
+                        - "$HOME/.docker_config/portainer/portainer_data:/data"
+            volumes:
+                portainer_data:
+EOF
+            echo "Iniciando Portainer con Docker Compose..."
+            docker-compose -f "$HOME/docker-compose.yml" up -d
+            if [ $? -eq 0 ]; then
+                echo "¡Listo! Portainer se ha instalado y está en funcionamiento."
+            else
+                echo "Error al iniciar Portainer con Docker Compose."
+                exit 1
+            fi
+            ;;
+        q)
+            read -p "¿Desea reiniciar automáticamente el servidor? (si/no): " reiniciar_automaticamente
+            if [ "$reiniciar_automaticamente" == "si" ]; then
+                sudo reboot
+            else
+                clear
+                echo "Reinicia manualmente cuando quieras con el comando -sudo reboot-"
+                break
+            fi
+            ;;
+        *)
+            echo "Opción inválida."
+            ;;
+    esac
+done
