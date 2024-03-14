@@ -85,7 +85,7 @@ while [ "$opcion" != "q" ]; do
                 pid=$!
                 while kill -0 $pid 2>/dev/null; do
                     show_progress $count $length
-                    sleep 0.2
+                    sleep 0.1
                     count=$((count+1))
                 done
                 wait $pid
