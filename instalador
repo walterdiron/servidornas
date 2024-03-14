@@ -28,7 +28,9 @@ while [ "$opcion" != "q" ]; do
     echo
     echo "1) Configurar mi terminal"
     echo "2) Instalar Herramientas"
-    echo "3) Instalar Ecosistema Docker"
+    echo "3) Instalar Docker"
+    echo "4) Instalar Docker"
+    echo "5) Instalar Docker"
     echo "q) Salir"
     echo
     read -p "Elige una opción: " opcion
@@ -101,19 +103,24 @@ while [ "$opcion" != "q" ]; do
 
             echo "Herramientas instaladas"
             ;;
+
         3)
-            # Instalar Ecosistema Docker
+            # Instalar Docker
             echo "Instalando Docker..."
             sudo apt-get update
             curl -sSl https://get.docker.com |sh
             sudo groupadd docker
             sudo usermod -aG docker $USER
-            newgrp docker
+            sudo reboot
 
+            ;;
+        4)
             #docker compose
             sudo apt install -y libffi-dev libssl-dev python-pip
-            sudo pip3 install docker-compose            
-            
+            sudo pip3 install docker-compose
+            sudo reboot
+            ;;
+        5)
             #Instalando Portainer
             echo "Creando el archivo docker-compose.yml para Portainer..."
             cat <<EOF > "$HOME/docker-compose.yml"
@@ -154,3 +161,10 @@ EOF
             ;;
     esac
 done
+
+
+            #docker compose
+            sudo apt install -y libffi-dev libssl-dev python-pip
+            sudo pip3 install docker-compose            
+            
+            
