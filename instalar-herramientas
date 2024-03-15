@@ -18,6 +18,8 @@ tools=(
     "manpages-es"
     "zip"
     "exa"
+    "python3" 
+    "python3-pip"
 )
 
 # Función para mostrar barra de progreso

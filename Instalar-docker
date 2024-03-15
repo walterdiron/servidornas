@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo apt install -y docker.io docker-compose
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+cd $HOME/docker_config/portainer
+docker-compose up -d
+
+sudo reboot
