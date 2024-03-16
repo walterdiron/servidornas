@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Verificar privilegios de superusuario
-#if [ "$(id -u)" -ne 0 ]; then
-#    echo "Este script necesita ser ejecutado con privilegios de superusuario."
-#    exit 1
-#fi
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Este script necesita ser ejecutado con privilegios de superusuario."
+    exit 1
+fi
 
 # Lista de herramientas a instalar
 tools=(
@@ -22,36 +22,32 @@ tools=(
     "python3-pip"
 )
 
-# Función para mostrar barra de progreso
-show_progress() {
-    local elapsed=$1
-    local total=$2
-    local progress=$((elapsed * 100 / total))
-    printf "[%-100s] %d%%\r" "$bar" "$progress"
-}
+# Inicializar listas de herramientas instaladas y no instaladas
+installed_tools=()
+failed_tools=()
 
 # Instalar herramientas
 for tool in "${tools[@]}"; do
     echo "Instalando $tool..."
-    bar="PROGRESO AL: "
-    length=${#bar}
-    count=0
-    sudo apt install "$tool" -y > /dev/null 2>&1 &
-    pid=$!
-    while kill -0 $pid 2>/dev/null; do
-        show_progress $count $length
-        sleep 0.2
-        count=$((count+1))
-    done
-    wait $pid
-    show_progress $length $length
-    echo ""
+    sudo apt install "$tool" -y > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo "$tool se ha instalado correctamente."
+        installed_tools+=("$tool")
     else
         echo "Error al instalar $tool. ¡Abortando!"
-        exit 1
+        failed_tools+=("$tool")
     fi
 done
 
-echo "Herramientas instaladas"
+echo
+echo "Herramientas instaladas correctamente:"
+printf '%s\n' "${installed_tools[@]}"
+echo
+
+if [ ${#failed_tools[@]} -gt 0 ]; then
+    echo
+    echo "Herramientas que no se pudieron instalar:"
+    printf '%s\n' "${failed_tools[@]}"
+    echo
+fi
+
