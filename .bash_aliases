@@ -1,4 +1,3 @@
-alias 2tb='cd /home/$USER/2TB'
 alias a='sudo apt update && sudo apt full-upgrade -y && sudo apt-get dist-upgrade && sudo apt autoremove -y && sudo apt clean && clear && echo "Todo Actualizado..."'
 alias ab='source $HOME/.bashrc'
 alias aliass='nano $HOME/.bash_aliases'
