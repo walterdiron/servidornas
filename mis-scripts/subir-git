@@ -9,8 +9,11 @@ REPO="tu_repositorio"
 # Mensaje de commit
 MESSAGE="Mensaje de commit"
 
+#directorio del repositorio
+DIR-REPO="Direccion del repositorio"
+
 # Cambiar directorio al repositorio
-cd /ruta/al/repositorio
+cd "$DIR-REPO"
 
 # Añadir todos los cambios al área de staging
 git add .

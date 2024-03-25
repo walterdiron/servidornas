@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Instalación de Docker en Raspberry Pi 4B
+install_docker() {
+    # Actualizar el índice de paquetes y asegurarse de que las dependencias estén actualizadas
+    sudo apt update
+    sudo apt upgrade -y
+
+    # Instalar algunas dependencias necesarias
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+
+    # Descargar e importar la clave GPG oficial de Docker
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+    # Agregar el repositorio de Docker a las fuentes de paquetes APT
+    echo "deb [arch=armhf] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+
+    # Actualizar el índice de paquetes una vez más
+    sudo apt update
+
+    # Instalar Docker
+    sudo apt install docker-ce docker-ce-cli containerd.io -y
+
+    # Añadir el usuario al grupo "docker" para ejecutar comandos Docker sin sudo
+    sudo usermod -aG docker $USER
+
+    # Reiniciar para aplicar los cambios de grupo
+    sudo reboot
+}
+
+# Creación del contenedor de Portainer
+create_portainer_container() {
+    # Crear el directorio para los volúmenes de Portainer
+    mkdir -p ~/.docker_config/portainer
+
+    # Ejecutar el contenedor de Portainer
+    sudo docker run -d -p 9000:9000 \
+      --name=portainer \
+      --restart=unless-stopped \
+      -v $HOME/.docker_config/portainer/docker.sock:/var/run/docker.sock \
+      -v $HOME/.docker_config/portainer/portainer_data:/data \
+      -e TZ=America/Argentina/Buenos_Aires \
+      portainer/portainer-ce
+}
+
+# Verificar si Docker ya está instalado
+if ! command -v docker &> /dev/null; then
+    echo "Docker no está instalado. Instalando Docker..."
+    install_docker
+else
+    echo "Docker ya está instalado."
+fi
+
+# Crear el contenedor de Portainer
+echo "Creando el contenedor de Portainer..."
+create_portainer_container
+
+echo "El contenedor de Portainer se ha creado correctamente."

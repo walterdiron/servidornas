@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Detener todos los contenedores Docker
+sudo docker stop $(sudo docker ps -a -q)
+
+# Eliminar todos los contenedores Docker
+sudo docker rm $(sudo docker ps -a -q)
+
+# Eliminar todas las imágenes Docker
+sudo docker rmi $(sudo docker images -q)
+
+# Desinstalar Docker Compose
+sudo apt-get remove docker-compose
+
+# Eliminar Docker
+sudo apt-get purge docker-ce docker-ce-cli containerd.io
+
+# Eliminar los archivos residuales y configuraciones de Docker
+sudo rm -rf /var/lib/docker
+sudo rm -rf /etc/docker
+
+# Eliminar el usuario Docker
+sudo userdel -r docker
+
+# Eliminar el grupo Docker
+sudo groupdel docker
+
+echo "Docker y Docker Compose se han eliminado correctamente de tu sistema."
