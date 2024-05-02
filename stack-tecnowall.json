@@ -1,0 +1,167 @@
+version: '3'
+
+services:
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Argentina/Buenos_Aires
+    volumes:
+      - /home/walli/.docker_config/trasmission/config:/config
+      - /home/walli/Descargas:/downloads
+    ports:
+      - "9001:9091"
+      
+    restart: unless-stopped
+
+
+version: "3.8"
+services:
+  raspap:
+    container_name: raspap
+    image: ghcr.io/raspap/raspap-docker:latest
+
+    privileged: true
+    network_mode: host
+    cgroup: host # uncomment when using an ARM device 
+    cap_add:
+      - SYS_ADMIN
+    volumes:
+      - /home/walli/.docker_config/raspap/cgroup:/sys/fs/cgroup:rw
+    restart: unless-stopped
+
+
+version: '3.7'
+
+services:
+  photoprism:
+    image: photoprism/photoprism:latest
+    container_name: photoprism
+    restart: unless-stopped
+    ports:
+      - "9011:2342"
+    volumes:
+      - /home/walli/Imagenes:/photoprism/storage
+    environment:
+      - PHOTOPRISM_ADMIN_PASSWORD=diron7547
+
+
+version: '3'
+
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    restart: unless-stopped
+    ports:
+      - "9006:4533"
+    volumes:
+      - /home/walli//Musica:/music
+      - /home/walli/.docker_config/navidrome:/config
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+    network_mode: bridge
+
+
+version: "3"
+services:
+  metube:
+    image: ghcr.io/alexta69/metube
+    container_name: metube
+    restart: unless-stopped
+    ports:
+      - "9010:8081"
+    volumes:
+      - /home/walli/Descargas:/downloads
+
+
+version: '3'
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    ports:
+      - "9003:8096"
+
+    volumes:
+      - /home/walli/.docker_config/jellyfin/:/config
+      - /home/walli/:/media
+    environment:
+      - TZ= America/Argentina/Buenos_Aires
+    network_mode: bridge
+
+
+version: '3'
+
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /home/walli/.docker_config/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - /home/walli/.docker_config/homarr/configs:/app/data/configs
+      - /home/walli/.docker_config/homarr/icons:/app/public/icons
+      - /home/walli/.docker_config/homarr/data:/data
+    ports:
+      - '9004:7575'
+
+
+version: "3"
+
+services:
+  filebrowser:
+    image: hurlenko/filebrowser
+    container_name: filebrowser
+    user: "${UID}:${GID}"
+    ports:
+      - 9002:8080
+    volumes:
+      - /home/walli/:/data
+      - /home/walli/.docker_config/filebrowser/:/config
+    environment:
+      - FB_BASEURL=/filebrowser
+    restart: always
+
+
+version: '3.3'
+
+services:
+  deemix:
+      image: finniedj/deemix
+      container_name: deemix
+      volumes:
+          - /home/walli//Musica:/downloads
+          - /home/walli/.docker_config/deemix/:/config
+      environment:
+          - PUID=1000
+          - PGID=1000
+          - UMASK_SET=022
+      ports:
+          - 9005:6595
+
+
+#ARL: 12/02/2024
+
+#fecc5b66fb1deaf925d3937dda737a790f6395acf60452d0883bdab47ec9599436a559f866ff6b34caa5fef5ebb76f708bde6b4da9a056860547fdd1f9447b382dff083486cbb7d93b68ff0b1f4a6cba78fa553dd568796a861488f3915d2782
+
+#a36c64a6f9d84165fa2317afd544d02968065c5d1366db20427a03859ce38082fc690973c2f4837172f3d6f0de05186d0d6d59baca70aaadaeea588ae2f82ecb3a8f760cea6726fd89b8dce469ebc3b89f5f8b288a4980cbf3277c3dfa2be7ee
+
+#d901f5774257144057c76210c83517dee7fd72c824cb9c0cc2ecd6300b47c186873ef45a88b13616bd68075afc7f88875d58cb4f2e86d66221e01f6350a820ef6b77aa562f352d4667accdca380c8acc454a0f7644bcc548ba05e3e0ca281031
+
+#354d8172ee449927de992e3c905e2598378f8a05c00e6b052e26b98fcab61326e8861137e221303286f9293df1d5be1dbc335619d8e9b9878c715923f4539fc35b18eb2070ae6502415dee70bcfc4d8f91c1686477a290a49366ef311a39d927
+
+#4dbfe7093efec7eb6839149e6361e2337bea4a9abcf10aea77c53bb13b5cd04e896089274f180dba3489d1b8b4b2a78f6d748f3060871f3daa0f1a0f1ea99d63ca7b91a89e7b3d59b29cf6ad693435ae0b46d8f203f33881be917a710acd1a7a
+
+#fbc388612c76c4abc61e5e2cfb5922a2fc679a1374992dd652f453f18fa6ea069caf9807ba7368105986356749eeffabe419bac8a82fe8591d86084203c4ed0fb929bee616de47829d73d2a517ce9cd9af52a6645dec6097cf88df678a78dcc1
+
+#fe4e56a7f660bc41bfd1be1d6f4d35a408fd9a64494b0dc05e272ab3cb4189715dd8ae6989c698aba1f758484202895b835f65dc805472d0a1bfa5f80a813f16c0c0200027d24ee58a770486fe0b6ce73dbb99cd338adf45f02bdfda8f40a3d1
+
+#e17dedb431a175afd4e2cf2923202042512636ea904adb9c7aa1e00e1d1fc5ff56fc130dc17c8e6cecef3881a629156c3d0886277ee044e76a19f1dc730b1a5fc0646911893a0359c920647588d3b3df08d1aa3afa58ba6bb54788d78e252610
+
+#87d7d3964e84ef53663fb028bf0625719d815a909a42c50eafb21a27c905e4cf13869f1cc26b03b5e9eeaae03967d2c7063fb04ca7dc38e16a2f8b05b05316469ae8895cde77aba70eea0b0e12b8adb3bf1b92e6d77cad214ce2194ae35a457f
