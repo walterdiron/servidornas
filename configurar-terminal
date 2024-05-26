@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Configurando mi terminal
-mkdir -p "$HOME/.baulera"
+mkdir -p "/home/walli/.baulera"
 
-cp -R .docker_config "$HOME/.docker_config"
+cp -R .docker_config "/home/walli/.docker_config"
 
-cp -R .bash_aliases "$HOME"
-source "$HOME/.bash_aliases"
+cp -R .bash_aliases "/home/walli/"
+source "/home/walli/.bash_aliases"
 
-cp -R .bashrc "$HOME"
-source "$HOME/.bashrc"
+cp -R .bashrc "/home/walli/"
+source "/home/walli/.bashrc"
 
-cp -R mis-scripts "$HOME/.baulera/mis-scripts"
-chmod -R +x "$HOME/.baulera/mis-scripts"
+cp -R mis-scripts "/home/walli/.baulera/mis-scripts"
+chmod -R +x "/home/walli/.baulera/mis-scripts"
