@@ -7,5 +7,3 @@ sudo usermod -aG docker $USER
 
 cd $HOME/docker_config/portainer
 docker-compose up -d
-
-sudo reboot

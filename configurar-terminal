@@ -13,5 +13,3 @@ source "$HOME/.bashrc"
 
 cp -R mis-scripts "$HOME/.baulera/mis-scripts"
 chmod -R +x "$HOME/.baulera/mis-scripts"
-
-sudo reboot

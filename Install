@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Verificar privilegios de superusuario
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Este script necesita ser ejecutado con privilegios de superusuario."
+    exit 1
+fi
+
+# Actualizar sistema
+sudo apt update
+apt full-upgrade -y
+apt-get dist-upgrade
+apt autoremove -y
+apt clean
+
+# Configurando todo
+bash configurar-terminal
+bash instalar-herramientas
+bash instalar-docker
