@@ -2,7 +2,8 @@
 
 # Configurando mi terminal
 mkdir -p "$HOME/.baulera"
-mkdir -p "$HOME/.docker_config"
+
+cp -R .docker_config "$HOME/.docker_config"
 
 cp -R .bash_aliases "$HOME"
 source "$HOME/.bash_aliases"
@@ -12,6 +13,5 @@ source "$HOME/.bashrc"
 
 cp -R mis-scripts "$HOME/.baulera/mis-scripts"
 chmod -R +x "$HOME/.baulera/mis-scripts"
-cp -R portainer "$HOME/.docker_config/portainer"
 
 sudo reboot

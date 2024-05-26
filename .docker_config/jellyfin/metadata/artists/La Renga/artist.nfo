@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<artist>
+  <biography />
+  <outline />
+  <lockdata>false</lockdata>
+  <dateadded>2024-04-08 23:32:12</dateadded>
+  <title>La Renga</title>
+  <runtime>701</runtime>
+  <genre>Latin Rock</genre>
+  <genre>Rock</genre>
+  <genre>Pop</genre>
+  <musicbrainzartistid>560449c4-cdc1-46ef-b759-f64abf73ba61</musicbrainzartistid>
+  <art>
+    <poster>/config/metadata/artists/La Renga/folder.jpg</poster>
+    <fanart>/config/metadata/artists/La Renga/backdrop.jpg</fanart>
+  </art>
+</artist>

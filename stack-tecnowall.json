@@ -10,29 +10,12 @@ services:
       - PGID=1000
       - TZ=America/Argentina/Buenos_Aires
     volumes:
-      - /home/walli/.docker_config/trasmission/config:/config
+      - /home/walli/.docker_config/trasmission:/config
       - /home/walli/Descargas:/downloads
     ports:
       - "9001:9091"
       
     restart: unless-stopped
-
-
-version: "3.8"
-services:
-  raspap:
-    container_name: raspap
-    image: ghcr.io/raspap/raspap-docker:latest
-
-    privileged: true
-    network_mode: host
-    cgroup: host # uncomment when using an ARM device 
-    cap_add:
-      - SYS_ADMIN
-    volumes:
-      - /home/walli/.docker_config/raspap/cgroup:/sys/fs/cgroup:rw
-    restart: unless-stopped
-
 
 version: '3.7'
 
@@ -45,8 +28,8 @@ services:
       - "9011:2342"
     volumes:
       - /home/walli/Imagenes:/photoprism/storage
-    environment:
-      - PHOTOPRISM_ADMIN_PASSWORD=diron7547
+#    environment:
+#      - PHOTOPRISM_ADMIN_PASSWORD=diron7547
 
 
 version: '3'
@@ -59,7 +42,7 @@ services:
     ports:
       - "9006:4533"
     volumes:
-      - /home/walli//Musica:/music
+      - /home/walli/Musica:/music
       - /home/walli/.docker_config/navidrome:/config
     environment:
       - TZ=America/Argentina/Buenos_Aires
@@ -87,7 +70,6 @@ services:
     restart: unless-stopped
     ports:
       - "9003:8096"
-
     volumes:
       - /home/walli/.docker_config/jellyfin/:/config
       - /home/walli/:/media
@@ -104,7 +86,7 @@ services:
     image: ghcr.io/ajnart/homarr:latest
     restart: unless-stopped
     volumes:
-      - /home/walli/.docker_config/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - /home/walli/.docker_config/homarr/docker.sock:/var/run/docker.sock
       - /home/walli/.docker_config/homarr/configs:/app/data/configs
       - /home/walli/.docker_config/homarr/icons:/app/public/icons
       - /home/walli/.docker_config/homarr/data:/data

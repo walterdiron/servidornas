@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 2,
+  "configProperties": {
+    "name": "default"
+  },
+  "categories": [
+    {
+      "id": "10befd45-5773-421b-b14a-f24f06ecc2d9",
+      "name": "Accesos Directos",
+      "position": 2
+    },
+    {
+      "id": "05426549-1c7e-4e09-8b91-7b407bbbcd82",
+      "name": "Atmosferico",
+      "position": 3
+    },
+    {
+      "id": "6472ec6b-a271-4d5c-ab9e-f599eceaae9f",
+      "name": "Docker",
+      "position": 2,
+      "type": "category"
+    }
+  ],
+  "wrappers": [
+    {
+      "id": "default",
+      "position": 0
+    },
+    {
+      "id": "a600f859-5502-41a0-8701-6db28f4bf265",
+      "position": 2
+    },
+    {
+      "id": "1e451eea-f704-488e-bad7-12977570cca0",
+      "position": 2
+    },
+    {
+      "id": "09e35be2-c381-42c4-8bf0-5169dd73ae9a",
+      "position": 2
+    }
+  ],
+  "apps": [
+    {
+      "id": "000b3249-5602-4734-bd3a-c87bffc81482",
+      "name": "Portainer",
+      "url": "https://192.168.1.100:9000",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://192.168.1.100:9000/#!/auth"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "left"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "b01cf05c-3efb-4cb5-ac02-84cb4819cfa3",
+      "name": "Convertio",
+      "url": "https://convertio.co/es",
+      "appearance": {
+        "iconUrl": "https://s3-eu-west-1.amazonaws.com/tpd/logos/54db64030000ff00057d5973/0x0.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://convertio.co/es/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "10befd45-5773-421b-b14a-f24f06ecc2d9"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "d499df9a-74d3-45f3-b4f5-a8611074b9df",
+      "name": "mercadolibre",
+      "url": "https://mercadolibre.com.ar",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_mercado_libre.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://mercadolibre.com.ar"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "10befd45-5773-421b-b14a-f24f06ecc2d9"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "83b43bdc-e687-4604-b074-4ea0e0cc5312",
+      "name": "Afip",
+      "url": "https://www.afip.gob.ar/landing/default.asp",
+      "appearance": {
+        "iconUrl": "https://www.mediafire.com/view/ak3rw8lsydmt02j/Afip.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": false,
+        "externalUrl": "https://www.afip.gob.ar/landing/default.asp"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "05426549-1c7e-4e09-8b91-7b407bbbcd82"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "6d259dd2-a59d-4852-adaa-6f694d2916b1",
+      "name": "youtube",
+      "url": "https://www.youtube.com",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/youtube.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://www.youtube.com/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "10befd45-5773-421b-b14a-f24f06ecc2d9"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "50b6349d-9070-43ad-bde2-f4cb58f80bc6",
+      "name": "Portainer",
+      "url": "http://192.168.1.100:9000/#!/auth",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/portainer.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "http://192.168.1.100:9000/#!/auth"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "6472ec6b-a271-4d5c-ab9e-f599eceaae9f"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "df2ca9f5-43e6-4807-9b02-139fe028b629",
+      "name": "Cargar Boletas",
+      "url": "https://sicoince.abc.gob.ar",
+      "appearance": {
+        "iconUrl": "https://unpkg.com/@tabler/icons-png@2.0.0-beta/icons/abc.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://sicoince.abc.gob.ar/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "05426549-1c7e-4e09-8b91-7b407bbbcd82"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "6a60906c-2a20-4fe5-a70b-1f5d18172d90",
+      "name": "Anden tv",
+      "url": "https://www.andentv.net",
+      "appearance": {
+        "iconUrl": "https://static.wixstatic.com/media/5cfdde_05d91426673f42148f6e81160be2ad5c~mv2.png/v1/fill/w_132,h_132,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/5cfdde_05d91426673f42148f6e81160be2ad5c~mv2.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column-reverse",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": false,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://www.andentv.net/"
+      },
+      "area": {
+        "type": "category",
+        "properties": {
+          "id": "10befd45-5773-421b-b14a-f24f06ecc2d9"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 3,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    }
+  ],
+  "widgets": [],
+  "settings": {
+    "common": {
+      "searchEngine": {
+        "type": "google",
+        "properties": {}
+      }
+    },
+    "customization": {
+      "layout": {
+        "enabledLeftSidebar": false,
+        "enabledRightSidebar": false,
+        "enabledDocker": false,
+        "enabledPing": false,
+        "enabledSearchbar": true
+      },
+      "pageTitle": "TecnoWall",
+      "logoImageUrl": "https://static.thenounproject.com/png/58041-200.png",
+      "faviconUrl": "https://static.thenounproject.com/png/58041-200.png",
+      "backgroundImageUrl": "",
+      "customCss": "",
+      "colors": {
+        "primary": "red",
+        "secondary": "yellow",
+        "shade": 7
+      },
+      "appOpacity": 100,
+      "gridstack": {
+        "columnCountSmall": 3,
+        "columnCountMedium": 6,
+        "columnCountLarge": 10
+      },
+      "backgroundImageAttachment": "fixed",
+      "backgroundImageRepeat": "no-repeat",
+      "backgroundImageSize": "cover",
+      "metaTitle": "Pagina de inicio"
+    },
+    "access": {
+      "allowGuests": false
+    }
+  }
+}

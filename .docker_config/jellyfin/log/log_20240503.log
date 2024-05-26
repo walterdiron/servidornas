@@ -1,0 +1,95 @@
+[2024-05-03 00:47:54.018 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Descargar subtítulos faltantes"
+[2024-05-03 00:47:54.018 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "SubtitleScheduledTask"
+[2024-05-03 00:47:54.018 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Descargar subtítulos faltantes"
+[2024-05-03 00:47:54.019 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Descargar subtítulos faltantes" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:54.021 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:54.147 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Limpiar directorio de registros"
+[2024-05-03 00:47:54.148 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "DeleteLogFileTask"
+[2024-05-03 00:47:54.148 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Limpiar directorio de registros"
+[2024-05-03 00:47:54.150 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Limpiar directorio de registros" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:54.151 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:54.286 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Limpiar directorio de transcodificación"
+[2024-05-03 00:47:54.286 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "DeleteTranscodeFileTask"
+[2024-05-03 00:47:54.287 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Limpiar directorio de transcodificación"
+[2024-05-03 00:47:54.288 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Limpiar directorio de transcodificación" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:54.290 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:54.872 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "TasksRefreshChannels"
+[2024-05-03 00:47:54.873 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "RefreshChannelsScheduledTask"
+[2024-05-03 00:47:54.873 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "TasksRefreshChannels"
+[2024-05-03 00:47:54.875 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "TasksRefreshChannels" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:54.877 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:55.014 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Limpiar directorio caché"
+[2024-05-03 00:47:55.015 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "DeleteCacheFileTask"
+[2024-05-03 00:47:55.015 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Limpiar directorio caché"
+[2024-05-03 00:47:55.092 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Limpiar directorio caché" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:55.094 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:55.323 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Optimización de base de datos"
+[2024-05-03 00:47:55.323 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "OptimizeDatabaseTask"
+[2024-05-03 00:47:55.323 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Optimización de base de datos"
+[2024-05-03 00:47:55.324 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.Tasks.OptimizeDatabaseTask: Optimizing and vacuuming jellyfin.db...
+[2024-05-03 00:47:55.480 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.Tasks.OptimizeDatabaseTask: jellyfin.db optimized successfully!
+[2024-05-03 00:47:55.480 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Optimización de base de datos" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 00:47:55.481 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:47:56.660 +00:00] [INF] [36] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Actualizar complementos"
+[2024-05-03 00:47:56.660 +00:00] [INF] [36] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "PluginUpdateTask"
+[2024-05-03 00:47:56.660 +00:00] [INF] [24] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Actualizar complementos"
+[2024-05-03 00:47:57.362 +00:00] [INF] [15] Emby.Server.Implementations.ScheduledTasks.TaskManager: "IntervalTrigger" fired for task: "Refresh Guide"
+[2024-05-03 00:47:57.363 +00:00] [INF] [15] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "RefreshGuideScheduledTask"
+[2024-05-03 00:47:57.363 +00:00] [INF] [15] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Refresh Guide"
+[2024-05-03 00:47:58.784 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Actualizar complementos" Completed after 0 minute(s) and 2 seconds
+[2024-05-03 00:47:58.786 +00:00] [INF] [44] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 00:48:00.369 +00:00] [INF] [38] Emby.Server.Implementations.LiveTv.LiveTvManager: Refreshing guide with 7 days of guide data
+[2024-05-03 00:48:00.371 +00:00] [INF] [38] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Refresh Guide" Completed after 0 minute(s) and 3 seconds
+[2024-05-03 00:48:00.373 +00:00] [INF] [38] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 01:59:59.999 +00:00] [INF] [49] Emby.Server.Implementations.ScheduledTasks.TaskManager: "DailyTrigger" fired for task: "Extraer imágenes de capítulo"
+[2024-05-03 02:00:00.000 +00:00] [INF] [49] Emby.Server.Implementations.ScheduledTasks.TaskManager: Queuing task "ChapterImagesTask"
+[2024-05-03 02:00:00.000 +00:00] [INF] [53] Emby.Server.Implementations.ScheduledTasks.TaskManager: Executing "Extraer imágenes de capítulo"
+[2024-05-03 02:00:00.022 +00:00] [INF] [53] Emby.Server.Implementations.ScheduledTasks.TaskManager: "Extraer imágenes de capítulo" Completed after 0 minute(s) and 0 seconds
+[2024-05-03 02:00:00.025 +00:00] [INF] [53] Emby.Server.Implementations.ScheduledTasks.TaskManager: ExecuteQueuedTasks
+[2024-05-03 02:00:01.002 +00:00] [INF] [53] Emby.Server.Implementations.ScheduledTasks.TaskManager: Daily trigger for "Extraer imágenes de capítulo" set to fire at 2024-05-04 02:00:00.000 +00:00, which is 23:59:58.9973269 from now.
+[2024-05-03 03:27:10.142 +00:00] [INF] [25] Emby.Server.Implementations.IO.LibraryMonitor: "Musica" ("/media/Musica") will be refreshed.
+[2024-05-03 03:27:10.180 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Patricio Rey y sus Redonditos de Ricota Version Arcade (Vol. 1)", Path: "/media/Musica/Argent 8Bit - Patricio Rey y sus Redonditos de Ricota Version Arcade (Vol. 1)", Id: 8f6b46be-4651-e155-78a2-7259a273efeb
+[2024-05-03 03:27:11.917 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "Folder", Name: "La Renga", Path: "/media/Musica/La Renga", Id: 4f7924b9-1fd7-9269-1fe1-c1decc7c334b
+[2024-05-03 03:27:12.079 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Esquivando Charcos", Path: "/media/Musica/Esquivando Charcos", Id: b3665fcd-e1f4-2461-aed7-9eaa7538bfd1
+[2024-05-03 03:27:14.168 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Pesados Vestigios", Path: "/media/Musica/Pesados Vestigios", Id: 0d2d452d-836e-193d-7744-12a603efd91b
+[2024-05-03 03:27:16.111 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Algún Rayo", Path: "/media/Musica/Algún Rayo", Id: 8fe2026e-f6f0-4a77-9661-67d86a9ccd96
+[2024-05-03 03:27:18.349 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicArtist", Name: "Insoportablemente Vivo", Path: "/media/Musica/Insoportablemente Vivo", Id: 6b3961cc-8546-c0e3-f597-fdcdb588d2b1
+[2024-05-03 03:27:18.728 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Truenotierra", Path: "/media/Musica/Truenotierra", Id: dde33a44-b444-9648-290f-24339435f338
+[2024-05-03 03:27:24.108 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Detonador de Sueños", Path: "/media/Musica/Detonador de Sueños", Id: ec76c81d-5540-d6ac-9691-831fb15d7aa2
+[2024-05-03 03:27:26.910 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Bailando En Una Pata (Live)", Path: "/media/Musica/Bailando En Una Pata (Live)", Id: 042e0fd4-cf74-4a67-1eeb-795a42944ce6
+[2024-05-03 03:27:33.399 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Alejado de la Red", Path: "/media/Musica/Alejado de la Red", Id: 6492b56b-086c-921c-e79b-d005990e6b5c
+[2024-05-03 03:27:37.791 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "La Esquina Del Infinito", Path: "/media/Musica/La Esquina Del Infinito", Id: d4715f94-41e4-b963-96cd-d59927def588
+[2024-05-03 03:27:42.631 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "Despedazado Por Mil Partes", Path: "/media/Musica/Despedazado Por Mil Partes", Id: b762d7c6-21d4-ba73-de5e-0f296b8eb5d2
+[2024-05-03 03:27:44.960 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "La Renga", Path: "/media/Musica/La Renga (La Estrella)", Id: b8693919-8416-814e-59b0-6994c33a89cc
+[2024-05-03 03:27:47.271 +00:00] [INF] [13] Emby.Server.Implementations.Library.LibraryManager: Removing item, Type: "MusicAlbum", Name: "A Donde Me Lleva La Vida", Path: "/media/Musica/Donde Me Lleva La Vida", Id: 4e2bb062-4247-f0c0-59e9-57bb84fbaf40
+[2024-05-03 03:27:57.221 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Alejado de la Red" ("/media/Musica/La Renga/Alejado de la Red") will be refreshed.
+[2024-05-03 03:27:57.222 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "La Renga" ("/media/Musica/La Renga") will be refreshed.
+[2024-05-03 03:27:57.230 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Algún Rayo" ("/media/Musica/La Renga/Algún Rayo") will be refreshed.
+[2024-05-03 03:27:57.230 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Bailando En Una Pata (Live)" ("/media/Musica/La Renga/Bailando En Una Pata (Live)") will be refreshed.
+[2024-05-03 03:27:57.230 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Despedazado Por Mil Partes" ("/media/Musica/La Renga/Despedazado Por Mil Partes") will be refreshed.
+[2024-05-03 03:27:57.230 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Detonador de Sueños" ("/media/Musica/La Renga/Detonador de Sueños") will be refreshed.
+[2024-05-03 03:27:57.231 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Donde Me Lleva La Vida" ("/media/Musica/La Renga/Donde Me Lleva La Vida") will be refreshed.
+[2024-05-03 03:27:57.231 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Esquivando Charcos" ("/media/Musica/La Renga/Esquivando Charcos") will be refreshed.
+[2024-05-03 03:27:57.231 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Insoportablemente Vivo" ("/media/Musica/La Renga/Insoportablemente Vivo") will be refreshed.
+[2024-05-03 03:27:57.231 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "La Esquina Del Infinito" ("/media/Musica/La Renga/La Esquina Del Infinito") will be refreshed.
+[2024-05-03 03:27:57.231 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "La Renga (La Estrella)" ("/media/Musica/La Renga/La Renga (La Estrella)") will be refreshed.
+[2024-05-03 03:27:57.234 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Pesados Vestigios" ("/media/Musica/La Renga/Pesados Vestigios") will be refreshed.
+[2024-05-03 03:27:57.235 +00:00] [INF] [57] Emby.Server.Implementations.IO.LibraryMonitor: "Truenotierra" ("/media/Musica/La Renga/Truenotierra") will be refreshed.
+[2024-05-03 03:29:34.303 +00:00] [ERR] [70] MediaBrowser.Providers.Manager.ProviderManager: Error refreshing item
+System.InvalidOperationException: Cannot update refresh progress of item 'MusicArtist' (0c8cb93013a5d1c427d67766a6c9b015) because a refresh for this item is not running
+   at MediaBrowser.Providers.Manager.ProviderManager.<>c__DisplayClass72_0.<OnRefreshProgress>b__0(Guid _)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(TKey key, Func`2 addValueFactory, Func`3 updateValueFactory)
+   at MediaBrowser.Providers.Manager.ProviderManager.OnRefreshProgress(BaseItem item, Double progress)
+   at MediaBrowser.Controller.Entities.Audio.MusicAlbum.RefreshAllMetadata(MetadataRefreshOptions refreshOptions, IProgress`1 progress, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.<>c__DisplayClass67_0.<<RefreshAllMetadataForContainer>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MediaBrowser.Providers.Manager.ProviderManager.RunMetadataRefresh(Func`1 action, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.RefreshAllMetadataForContainer(IMetadataContainer container, MetadataRefreshOptions refreshOptions, IProgress`1 progress, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.RefreshChildMetadata(BaseItem child, MetadataRefreshOptions refreshOptions, Boolean recursive, IProgress`1 progress, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.<>c__DisplayClass70_0`1.<<RunTasks>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MediaBrowser.Controller.Entities.Folder.RunTasks[T](Func`3 task, IList`1 children, IProgress`1 progress, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.ValidateChildrenInternal2(IProgress`1 progress, Boolean recursive, Boolean refreshChildMetadata, MetadataRefreshOptions refreshOptions, IDirectoryService directoryService, CancellationToken cancellationToken)
+   at MediaBrowser.Controller.Entities.Folder.ValidateChildrenInternal(IProgress`1 progress, Boolean recursive, Boolean refreshChildMetadata, MetadataRefreshOptions refreshOptions, IDirectoryService directoryService, CancellationToken cancellationToken)
+   at MediaBrowser.Providers.Manager.ProviderManager.RefreshArtist(MusicArtist item, MetadataRefreshOptions options, CancellationToken cancellationToken)
+   at MediaBrowser.Providers.Manager.ProviderManager.StartProcessingRefreshQueue()
