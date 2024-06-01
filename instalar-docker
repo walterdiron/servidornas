@@ -3,7 +3,7 @@
 sudo apt install -y docker.io docker-compose
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker walli
 
 cd /home/walli/docker_config/portainer
 docker-compose up -d
