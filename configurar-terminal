@@ -2,6 +2,10 @@
 
 # Configurando mi terminal
 mkdir -p "/home/walli/.baulera"
+mkdir -p "/home/walli/Descargas"
+mkdir -p "/home/walli/Imagenes"
+mkdir -p "/home/walli/Musica"
+
 
 cp -R .docker_config "/home/walli/.docker_config"
 
