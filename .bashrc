@@ -1,5 +1,5 @@
 # Configuraciones de entorno
-export PATH="$HOME/.baulera/mis-scripts:$PATH"
+export PATH="/home/walli/.baulera/mis-scripts:$PATH"
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 export LANG=es_AR.UTF-8

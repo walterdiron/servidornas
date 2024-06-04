@@ -8,8 +8,8 @@ services:
         ports:
             - "9000:9000"
         volumes:
-            - "$HOME/.docker_config/portainer/docker.sock:/var/run/docker.sock"
-            - "$HOME/.docker_config/portainer/portainer_data:/data"
+            - "/home/walli/.docker_config/portainer/docker.sock:/var/run/docker.sock"
+            - "/home/walli/.docker_config/portainer/portainer_data:/data"
         environment:
             - TZ=America/Argentina/Buenos_Aires
 
